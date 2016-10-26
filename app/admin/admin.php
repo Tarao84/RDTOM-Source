@@ -11,7 +11,7 @@
 if (!is_admin()) {
 
     // show error page if not admin
-    echo "Désolé, il faut être admin pour voir cette page.";
+    echo "Sorry, you must be logged in to view this page.";
     exit;
 }
 
@@ -40,19 +40,19 @@ if ($_GET['clone_question']) {
 if ($_GET['update_report']) {
     $report = get_report_from_ID($_GET['update_report']);
 
-    if ($_GET['new_status'] == "en cours") {
+    if ($_GET['new_status'] == "open") {
         $report->set_Status(REPORT_OPEN);
     }
-    if ($_GET['new_status'] == "corrigé") {
+    if ($_GET['new_status'] == "fixed") {
         $report->set_Status(REPORT_FIXED);
     }
     if ($_GET['new_status'] == "incorrect") {
         $report->set_Status(REPORT_INCORRECT);
     }
-    if ($_GET['new_status'] == "clarifié") {
+    if ($_GET['new_status'] == "clarified") {
         $report->set_Status(REPORT_CLARIFIED);
     }
-    if ($_GET['new_status'] == "pas d'action") {
+    if ($_GET['new_status'] == "noaction") {
         $report->set_Status(REPORT_NOACTION);
     }
 
